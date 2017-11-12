@@ -1,6 +1,6 @@
 {
   "name": "node-telegram-logger",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "log messages in your app using telegram bots",
   "main": "TelegramLogger.js",
   "author": "moein rahimi",
@@ -12,6 +12,11 @@
   "bugs": {
     "url": "https://github.com/ashleygwilliams/node-telegram-logger/issues"
   },
-  "keywords": ["node-telegram-logger","telegram-logger","telegram-log","telegram","telegram-bot"]
-  
+  "keywords": [
+    "node-telegram-logger",
+    "telegram-logger",
+    "telegram-log",
+    "telegram",
+    "telegram-bot"
+  ]
 }
