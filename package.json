@@ -8,5 +8,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/moeinrahimi/node-telegram-logger"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ashleygwilliams/node-telegram-logger/issues"
+  },
+  "keywords": ["node-telegram-logger","telegram-logger","telegram-log","telegram","telegram-bot"]
+  
 }
