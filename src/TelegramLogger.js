@@ -1,8 +1,9 @@
 const http = require('https')
-const querystring = require('querystring');
+const querystring = require('querystring')
 module.exports = class TelegramLogger {
     constructor(token,channelName){
         this.isThereToken(token)
+        this.isThereChannel(channelName)
         this.token = token 
         this.channelName = channelName
         this.baseUrl = `https://api.telegram.org/bot${token}/`
@@ -10,8 +11,8 @@ module.exports = class TelegramLogger {
     isThereToken(token){
         if(!token) throw new Error('there is no token in class constructor')
     }
-    isThereChannel(token){
-        if(!token) throw new Error('there is no token in class constructor')
+    isThereChannel(channel){
+        if(!channel) throw new Error('there is no token in class constructor')
     }
     sendRequest(url){
         http.get(url,(res)=> {
@@ -53,14 +54,14 @@ ${this.getDate()}`
         }   
     }
     getDate(){
-        var date = new Date()
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var ampm = hours >= 12 ? 'pm' : 'am';
+        let date = new Date()
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
         minutes = minutes < 10 ? '0'+minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ' + ampm;
+        let strTime = hours + ':' + minutes + ' ' + ampm;
         return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime;
     }
 }
