@@ -2,7 +2,10 @@
   "name": "node-telegram-logger",
   "version": "1.0.0",
   "description": "log messages in your app using telegram bots",
-  "main": "app.js",
+  "main": "TelegramLogger.js",
+  "files": [
+    "TelegramLogger.js"
+  ],
   "author": "moein rahimi",
   "license": "MIT",
   "repository" :
