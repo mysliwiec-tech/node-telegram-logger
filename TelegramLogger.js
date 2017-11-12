@@ -44,7 +44,7 @@ ${this.getDate()}`
      emojiMap(){
         return {
             DEBUG    : '🚧',
-            INFO     : '‍🗨',
+            INFO     : '‍💬',
             NOTICE   : '🕵',
             WARNING  : '⚡️',
             ERROR    : '🚨',

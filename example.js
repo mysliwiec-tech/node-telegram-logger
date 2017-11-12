@@ -1,3 +1,6 @@
 const TelegramLogger = require('./')
 let tg = new TelegramLogger('451191561:AAE204wmBijCbwSz5AhL994JfUdaduMItPU','-1001303982854')
-tg.sendMessage('hi','EMERGENCY')
+tg.sendMessage('checkout email verifation route','EMERGENCY')
+tg.sendMessage('user just logged in','INFO')
+tg.sendMessage('there is still a todo in userController','NOTICE')
+tg.sendMessage('failed to upload user avatar','ERROR')
