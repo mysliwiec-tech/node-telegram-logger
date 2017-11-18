@@ -26,12 +26,13 @@ npm i node-telegram-logger@latest --save
 const TelegramLogger = require('node-telegram-logger')
 let tg = new TelegramLogger('token','channelName')
 tg.sendMessage('first log ever','EMERGENCY')
-
-// there are 8 level for messages based on their priority you can use on of :
-// DEBUG,INFO,NOTICE,WARNING,ERROR,CRITICAL,ALERT,EMERGENCY
 ```
 - **token** your bot token provided by BotFather
 - **channel** your telegram channel userName
+
+ there are 8 level for messages based on their priority you can use on of :  
+ DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY  
+ default is set to INFO, also you can use ```RANDOM``` argument to get a random emoji each time 
 
 # Notes
 if your telegram channel is private then you can get your channel id via below method : 
