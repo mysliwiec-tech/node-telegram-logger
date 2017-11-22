@@ -8,7 +8,7 @@ Telegram Logger Library for nodejs which allows you to log messages into telegra
 
 # Screenshot
 
-![node-telegram-logger demo screenshot](https://raw.githubusercontent.com/moeinrahimi/node-telegram-logger/master/demo.png)
+![node-telegram-logger demo screenshot](https://i.imgsafe.org/80/8002a819f4.png)
 
 
 # Installation
