@@ -8,7 +8,7 @@ Telegram Logger Library for nodejs which allows you to log messages into telegra
 
 # Screenshot
 
-![node-telegram-logger demo screenshot](https://i.imgsafe.org/80/8002a819f4.png)
+![node-telegram-logger demo screenshot](https://raw.githubusercontent.com/moeinrahimi/node-telegram-logger/master/demo.png)
 
 
 # Installation
@@ -20,6 +20,9 @@ npm i node-telegram-logger@latest --save
 ```
 
 
+# Features
+- simple wrapper for telegram 
+- 8 log levels
 
 # Usage
 ```javascript
@@ -28,7 +31,7 @@ let tg = new TelegramLogger('token','channelName')
 tg.sendMessage('first log ever','EMERGENCY')
 ```
 - **token** your bot token provided by BotFather
-- **channel** your telegram channel userName
+- **channelName** your telegram channel userName or simply chat_id
 
  there are 8 level for messages based on their priority you can use on of :  
  DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY  
