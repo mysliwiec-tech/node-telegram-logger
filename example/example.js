@@ -1,5 +1,5 @@
-const TelegramLogger = require('./')
-let tg = new TelegramLogger('token','chat_id')
+const TelegramLogger = require('../dist/bundle.js')
+let tg = new TelegramLogger('TOKEN','@armandweb')
 
 tg.sendMessage('checkout email verifation route','RANDOM')
 

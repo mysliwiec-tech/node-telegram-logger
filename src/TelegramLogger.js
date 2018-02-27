@@ -1,21 +1,50 @@
-const http = require('https')
-const querystring = require('querystring')
-module.exports = class TelegramLogger {
+import https from 'https'
+import querystring from 'querystring'
+import {isBrowser,isNode} from './utils'
+
+
+export default class TelegramLogger {
     constructor(token,channelName){
         this.isThereToken(token)
         this.isThereChannel(channelName)
         this.token = token 
         this.channelName = channelName
         this.baseUrl = `https://api.telegram.org/bot${token}/`
+        this.env = this.detectEnv()
+    }
+    detectEnv(){
+        if(isBrowser){
+            return 'browser'
+        }
+        if(isNode){
+            return 'node'
+        }
     }
     isThereToken(token){
         if(!token) throw new Error('there is no token in class constructor')
     }
     isThereChannel(channel){
-        if(!channel) throw new Error('there is no token in class constructor')
+        if(!channel) throw new Error('there is no channel name in class constructor')
     }
     sendRequest(url){
-        http.get(url,(res)=> {
+        let env = this.env
+        if(env == 'node')
+            return this.nodeRequest(url)
+        else if(env == 'browser')
+            return this.browserRequest(url)
+        
+    }
+    async browserRequest(url){
+        try{
+            let {data} = await fetch(url)
+            return data 
+        }catch(e){
+            console.log(e.response.data)
+        }
+        
+    }
+    nodeRequest(url){
+        return https.get(url,(res)=> {
             const { statusCode } = res;
             if(statusCode !== 200){
                 let data 
@@ -30,7 +59,7 @@ module.exports = class TelegramLogger {
             console.log(e,'got an error in https request')
         })
     }
-    sendMessage(message,level='INFO'){
+    sendMessage(message,level='RANDOM'){
         let emoji = this.emojiMap()[level]
         if(level == 'RANDOM')  {
             let emojiArray = Object.keys(this.emojiMap()).sort()
@@ -38,15 +67,14 @@ module.exports = class TelegramLogger {
             emoji = this.emojiMap()[emojiIndex]
         }
         message = `${emoji} ${message}
-${this.getDate()}`
+${this.getDate()}`        
         let urlParams = querystring.stringify({
             chat_id : this.channelName,
             text : message ,
             parse_mode  :'HTML'
         })
         let url =  `${this.baseUrl}sendMessage?${urlParams}`
-        this.sendRequest(url)
-        
+        this.sendRequest(url) 
     }
      emojiMap(){
         return {
