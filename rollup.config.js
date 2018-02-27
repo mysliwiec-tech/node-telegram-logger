@@ -7,8 +7,8 @@ export default {
     format: 'umd',
     name: 'TelegramLogger',
   },
-  plugins: [
-    globals(),
-    builtins()
-  ]
+  // plugins: [
+  //   // globals(),
+  //   builtins()
+  // ]
 };

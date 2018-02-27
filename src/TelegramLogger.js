@@ -1,5 +1,5 @@
 import https from 'https'
-import querystring from 'querystring'
+// import querystring from 'querystring'
 import {isBrowser,isNode} from './utils'
 
 
@@ -68,11 +68,13 @@ export default class TelegramLogger {
         }
         message = `${emoji} ${message}
 ${this.getDate()}`        
-        let urlParams = querystring.stringify({
-            chat_id : this.channelName,
-            text : message ,
-            parse_mode  :'HTML'
-        })
+
+        let urlParams =encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
+        // let urlParams = querystring.stringify({
+        //     chat_id : this.channelName,
+        //     text : message ,
+        //     parse_mode  :'HTML'
+        // })
         let url =  `${this.baseUrl}sendMessage?${urlParams}`
         this.sendRequest(url) 
     }
