@@ -22,6 +22,7 @@ npm i node-telegram-logger@latest --save
 
 # Features
 - simple wrapper for telegram 
+- universal which works on nodejs and browser with one simple api 
 - 8 log levels
 
 # Usage
@@ -48,3 +49,6 @@ Now tell your bot to send the messages to chat_id=-100NUMBER
 
 
 
+
+# TODO List
+- [ ] compatiblity with react-native
