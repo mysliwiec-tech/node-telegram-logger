@@ -12,7 +12,39 @@ const isNode = typeof module !== 'undefined' && typeof module.exports !== 'undef
 
 //TODO: detect react-native
 
-class TelegramLogger {
+const winston = require('winston');
+const Transport = require('winston-transport');
+const util = require('util');
+const TelegramLogger = require('../dist/bundle.js');
+
+
+
+
+//
+// Inherit from `winston-transport` so you can take advantage
+// of the base functionality and `.exceptions.handle()`.
+//
+class telegramTransporter extends Transport {
+  constructor(opts,tg) {
+    super(opts);
+    // console.log(opts,a,'asdasdsda')
+    this.tg = tg;
+    //
+    // Consume any custom options here. e.g.:
+    // - Connection information for databases
+    // - Authentication information for APIs (e.g. loggly, papertrail, 
+    //   logentries, etc.).
+    //
+  }
+
+  log(info, callback) {
+    this.tg.sendMessage(info.message,info.level);
+    // Perform the writing to the remote service
+    callback();
+  }
+}
+
+class TelegramLogger$1 {
     constructor(token,channelName){
         this.isThereToken(token);
         this.isThereChannel(channelName);
@@ -113,8 +145,12 @@ ${this.getDate()}`;
     getRandomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min)
       }
+      setWinstonTransporter(tg){
+          console.log(tg);
+          return new telegramTransporter({ filename: 'error.log', level: 'info' },tg)
+      }
 }
 
-return TelegramLogger;
+return TelegramLogger$1;
 
 })));

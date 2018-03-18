@@ -1,7 +1,7 @@
 import https from 'https'
 // import querystring from 'querystring'
 import {isBrowser,isNode} from './utils'
-
+import telegramTransporter from './telegramTransporter'
 
 export default class TelegramLogger {
     constructor(token,channelName){
@@ -103,6 +103,10 @@ ${this.getDate()}`
     }
     getRandomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min)
+      }
+      setWinstonTransporter(tg){
+          console.log(tg)
+          return new telegramTransporter({ filename: 'error.log', level: 'info' },tg)
       }
 }
 
