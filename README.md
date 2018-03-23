@@ -24,6 +24,7 @@ npm i node-telegram-logger@latest --save
 - simple wrapper for telegram 
 - universal which works on nodejs and browser with one simple api 
 - 8 log levels
+- compatible with winston 
 
 # Usage
 ```javascript
@@ -37,6 +38,22 @@ tg.sendMessage('first log ever','EMERGENCY')
  there are 8 level for messages based on their priority you can use on of :  
  DEBUG, INFO, NOTICE, WARNING, ERROR, CRITICAL, ALERT, EMERGENCY  
  default is set to INFO, also you can use ```RANDOM``` argument to get a random emoji each time 
+
+# using with winston 
+```javascript
+const TelegramLogger = require('../dist/bundle.js')
+let tg = new TelegramLogger('TOKEN','@channel')
+const winston = require('winston')
+const winston = require('winston')
+const logger = winston.createLogger({
+  level: 'info',
+  transports: [
+    tg.setWinstonTransporter(tg)
+  ]
+});
+logger.log('info', 'Hello distributed log files!');
+
+```
 
 # Notes
 if your telegram channel is private then you can get your channel id via below method : 
