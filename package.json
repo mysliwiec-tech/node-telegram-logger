@@ -30,7 +30,7 @@
     "webpack-cli": "^2.0.9"
   },
   "dependencies": {
-    "winston": "^3.0.0-rc0",
+    "winston": "^3.0.0-rc3",
     "winston-transport": "^3.0.1"
   }
 }

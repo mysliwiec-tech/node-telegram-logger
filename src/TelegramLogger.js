@@ -61,6 +61,7 @@ export default class TelegramLogger {
     }
     sendMessage(message,level='RANDOM'){
         let emoji = this.emojiMap()[level]
+        console.log(emoji,level)
         if(level == 'RANDOM')  {
             let emojiArray = Object.keys(this.emojiMap()).sort()
             let emojiIndex = emojiArray[this.getRandomNumber(1,5)]
@@ -88,6 +89,9 @@ ${this.getDate()}`
             CRITICAL : '🤒',
             ALERT    : '👀',
             EMERGENCY: '🤕',
+            emerg: '🤕', 
+            crit:  '🤒', 
+         
         }   
     }
     getDate(){
