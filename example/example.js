@@ -13,7 +13,7 @@ tg.sendMessage('failed to upload user avatar','ERROR')
 // const logger = winston.createLogger({
 //   level: 'info',
 //   transports: [
-//     tg.setWinstonTransporter(tg)
+//     tg.setWinstonTransporter(tg,'mylog.log','info')
 //   ]
 // });
 // logger.log('info', 'Hello distributed log files!');

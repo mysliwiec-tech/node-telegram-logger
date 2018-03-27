@@ -109,7 +109,6 @@ ${this.getDate()}`
         return Math.round(Math.random() * (max - min) + min)
       }
       setWinstonTransporter(tg){
-          console.log(tg)
           return new telegramTransporter({ filename: 'error.log', level: 'info' },tg)
       }
 }

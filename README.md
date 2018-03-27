@@ -3,7 +3,7 @@
 node-telegram-logger
 =============
 
-Telegram Logger Library for nodejs which allows you to log messages into telegram channels using bots .
+Telegram Logger Library for nodejs and javascript for debugging your application easier using telegram bots
 
 
 # Screenshot
@@ -40,10 +40,13 @@ tg.sendMessage('first log ever','EMERGENCY')
  default is set to INFO, also you can use ```RANDOM``` argument to get a random emoji each time 
 
 # using with winston 
+first install winston and winston-transport if you don't have already via
+```bash
+npm install winston-transport winston@3.0.0-rc3 --save
+```
 ```javascript
-const TelegramLogger = require('../dist/bundle.js')
+const TelegramLogger = require('node-telegram-logger')
 let tg = new TelegramLogger('TOKEN','@channel')
-const winston = require('winston')
 const winston = require('winston')
 const logger = winston.createLogger({
   level: 'info',
