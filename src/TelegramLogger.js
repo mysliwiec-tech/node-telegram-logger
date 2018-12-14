@@ -67,8 +67,7 @@ export default class TelegramLogger {
             let emojiIndex = emojiArray[this.getRandomNumber(1,5)]
             emoji = this.emojiMap()[emojiIndex]
         }
-        message = `${emoji} ${message}
-${this.getDate()}`        
+        message = `${emoji} ${message}`        
 
         let urlParams =encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=Markdown`)
         // let urlParams = querystring.stringify({
@@ -93,17 +92,6 @@ ${this.getDate()}`
             crit:  '🤒', 
          
         }   
-    }
-    getDate(){
-        let date = new Date()
-        let hours = date.getHours()
-        let minutes = date.getMinutes()
-        let ampm = hours >= 12 ? 'pm' : 'am'
-        hours = hours % 12
-        hours = hours ? hours : 12 // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+minutes : minutes
-        let strTime = hours + ':' + minutes + ' ' + ampm
-        return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + "  " + strTime
     }
     getRandomNumber(min, max) {
         return Math.round(Math.random() * (max - min) + min)
