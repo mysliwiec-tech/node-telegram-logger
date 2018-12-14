@@ -70,7 +70,7 @@ export default class TelegramLogger {
         message = `${emoji} ${message}
 ${this.getDate()}`        
 
-        let urlParams =encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=HTML`)
+        let urlParams =encodeURI(`chat_id=${this.channelName}&text=${message}&parse_mode=Markdown`)
         // let urlParams = querystring.stringify({
         //     chat_id : this.channelName,
         //     text : message ,
